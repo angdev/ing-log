@@ -1,0 +1,25 @@
+{
+  "name": "ing-log",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "ejs": "~0.8.3"
+  },
+  "readmeFilename": "README.md",
+  "gitHead": "49040f7b3a6ee41d8aac4ad25b289bea21bc1fe9",
+  "description": "-------- Simple blog implemented in node.js",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FeGs/ing-log.git"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "angdev",
+  "license": "MIT"
+}
