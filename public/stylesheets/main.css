@@ -129,6 +129,7 @@ hr {
 }
 
 .post-content {
+	margin-left: 10px;
 	padding: 10px 0 10px 0;
 }
 
@@ -145,5 +146,12 @@ hr {
 }
 
 .post-date {
+	position: relative;
+	margin-top: 5px;
+}
+
+.post-date span {
+	position: absolute;
 	font-size: small;
+	right: 5px;
 }
