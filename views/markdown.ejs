@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<title>Ing-log</title>
+	<%-: '/stylesheets/modern.css' | css %>
+	<%-: '/stylesheets/md.css' | css %>
+	<%-: '/stylesheets/highlight.css' | css %>
+</head>
+<body>
+<div class="page">
+	<div class="page-region">
+		<div class="page-region-content">
+			<div class="post-container">
+					<div class="post-box">
+					<div class="post-content"><%- content %></div>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+<%-: '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js' | script %>
+<%-: '/javascripts/main.js' | script %>
+<%-scripts%>
+</html>

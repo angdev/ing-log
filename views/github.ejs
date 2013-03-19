@@ -1,0 +1,35 @@
+<ul class="listview">
+<% 
+	var j = 0;
+	for(var i=0; i<github.length; i++) { 
+	if(j == 5) {
+		break;
+	}
+	if(!(github[i].type == 'PushEvent' || github[i].type == 'CreateEvent')) {
+		continue;
+	}
+	j++;
+%>
+	<li>
+        <div class="icon">
+            <img src="<%- github[i].actor.avatar_url %>" />
+        </div>
+        <div class="data">
+            <h4><%- link_to(github[i].repo.name, 'http://github.com/' + github[i].repo.name) %></h4>
+            <p><% if(github[i].type == 'PushEvent') { %>
+                <%- link_to(github[i].payload.ref + '에 푸시함', 'http://github.com/' + github[i].repo.name + '/commit/' + github[i].payload.head, {class: "commit-link"}) %>
+                <% } else if(github[i].type == 'CreateEvent') { 
+                	if(github[i].payload.ref_type == 'repository') { %>
+                		저장소를 새로 생성함
+                	<% } else if(github[i].payload.ref_type == 'branch') { %>
+                		브랜치를 새로 생성함
+                	<% } %>
+                <% } else { continue; } %>
+            </p>
+            <p>
+                @ <%= github[i].created_at %>
+            </p>
+        </div>
+    </li>
+<% } %>
+</ul>

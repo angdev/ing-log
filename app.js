@@ -3,15 +3,27 @@
  * Module dependencies.
  */
 
+
 var express = require('express')
+
+//routes
   , routes = require('./routes')
-  , user = require('./routes/user')
+  , timeline = require('./routes/timeline')
+  , test = require('./routes/test')
+
+//modules
+  , mongoose = require('mongoose')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , ejs_locals = require('ejs-locals')
+  , ejs_custom = require('./lib/ejs_custom')
+  , blog_config = require('./setting/blog').config;
 
 var app = express();
+require('express-helpers')(app);
 
 app.configure(function(){
+  app.engine('ejs', ejs_locals);
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'ejs');
@@ -23,12 +35,25 @@ app.configure(function(){
   app.use(express.static(path.join(__dirname, 'public')));
 });
 
+//db connect
+mongoose.connect('mongodb://localhost/blog');
+
+app.locals.title = blog_config.title;
+
 app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
 app.get('/', routes.index);
-app.get('/users', user.list);
+app.get('/about', routes.about);
+app.get('/post', routes.post);
+app.get('/project', routes.project);
+app.get('/md/:file', routes.md);
+
+app.get('/test', test.test);
+
+//ajax
+app.get('/timeline/github', timeline.github);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

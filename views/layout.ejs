@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<title>Ing-log</title>
+	<%-: '/stylesheets/modern.css' | css %>
+	<%-: '/stylesheets/main.css' | css %>
+	<%-: '/stylesheets/highlight.css' | css %>
+</head>
+<body>
+	<div class="page with-sidebar">
+		<div class="page-header">
+			<div class="page-header-content">
+				<div class="absolute-bottom">
+					<a href="/"><h1 class="no-absolute"><%= title %></h1></a>
+					<% if(typeof(second_title) !== 'undefined') { %>
+					<h2 class="no-absolute">&gt; <%= second_title %></h2>
+					<% } %>
+					<% if(typeof(third_title) !== 'undefined') { %>
+					<h3 class="no-absolute">&gt; <%= third_title %></h3>
+					<% } %>
+				</div>
+				<div class="absolute-right absolute-bottom social-addr">
+					<%-: 'http://facebook.com/vang0123v' | link_to: '<i class="icon-facebook"></i>' %>
+					<%-: 'http://twitter.com/ang0123dev' | link_to: '<i class="icon-twitter"></i>' %>
+					<%-: 'http://github.com/FeGs' | link_to: '<i class="icon-github-2"></i>' %>
+					<%-: 'http://bitbucket.com/FeGs' | link_to: 'Bitbucket' %>
+				</div>
+			</div>
+		</div>
+		
+		 <div class="page-sidebar bg-color-white">
+			 <ul class="bg-color-white">
+			 	<% active = {}; if(typeof(second_title) !== 'undefined') active[second_title] = 'nav_active'; %>
+	            <li class="<%=active['About']%>"><%-: 'about' | link_to: 'About' %></li>
+	            <li class="<%=active['Post']%>"><%-: 'post' | link_to: 'Post' %></li>
+	            <li class="<%=active['Project']%>"><%-: 'project' | link_to: 'Project' %></li>
+	        </ul>
+		 </div>
+		
+		<div class="page-region">
+			<div class="page-region-content">
+				<%- body %>
+			</div>	
+		</div>
+		
+		<div class="page-footer">
+			<div class="page-footer-content">
+				<%- partial('footer') %>
+			</div>
+		</div>
+	</div>
+</body>
+<%-: '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js' | script %>
+<%-: '/javascripts/main.js' | script %>
+<%-scripts%>
+</html>

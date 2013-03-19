@@ -1,0 +1,165 @@
+/* Main Layout */
+
+/* common layout or helper */
+
+hr {
+	margin: 0;
+}
+
+.page {
+	width: 960px;
+	margin: 0 auto;
+	padding-top: 20px;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.absolute-right {
+	position: absolute;
+	right: 0px;
+}
+
+.absolute-bottom {
+	position: absolute;
+	bottom: 0px;
+}
+
+.page .page-header .page-header-content .no-absolute {
+	position: relative;
+	display: inline;
+	margin: auto;
+	padding: inherit;
+}
+
+.page.with-sidebar .page-region .page-region-content {
+	padding-left: 40px;
+}
+
+.page-header-content {
+	/* border-bottom: 2px solid #cacaca; */
+}
+
+.page-footer-content {
+	font-size: 12px;
+	border-top: 2px solid #cacaca;
+	padding: 10px 10px 10px 10px;
+}
+
+.loading {
+	display: block;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	margin-left: 50px;
+    width: 100px;
+}
+
+/* uncommon layout */
+
+.social-addr a {
+	font-weight: 100;
+	font-size: 20px;
+	margin-right: 2px;
+}
+
+.page-sidebar a:hover {
+	background-color: rgba(21,250,181,0.45) !important;
+	color: black !important;
+}
+
+.page-sidebar ul {
+	margin-left: 20px;
+}
+
+.nav_active {
+	background-color: rgba(21,250,181,0.45) !important;
+	color: black !important;
+}
+
+
+/* Index page */
+#timeline-container {
+	position: relative;
+}
+
+#coding-timeline {
+	float: left;
+	margin: 20px 0 20px 0;
+	width: 300px;
+}
+
+#coding-timeline #github {
+	min-height: 30px;
+}
+
+.commit-link {
+	font-size: 9pt;
+	color: #0ac222;
+}
+
+#coding-timeline #github ul {
+	margin-left: 0px;
+}
+
+#other-timeline {
+	float: left;
+	margin: 20px 0 20px 0;
+	max-width: 300px;
+}
+
+
+/* Post page */
+.post-container {
+
+}
+
+.post-box {
+	padding: 10px 0 0 10px;
+	margin: 10px 0 10px 0;	
+}
+
+.post-title {
+	padding-left: 20px;
+	padding-bottom: 10px;
+	line-height: 30pt;
+	font-size: 25pt;
+	border-bottom: 1px solid #cacaca;
+}
+
+.post-content {
+	padding: 10px 0 10px 0;
+}
+
+.post-content h1 {
+	font-size: 25pt;
+}
+
+.post-content h2 {
+	font-size: 18pt;
+}
+
+.post-content h3 {
+	font-size: 15pt;
+}
+
+.post-content p {
+	line-height: 20pt;
+}
+
+.post-date {
+	font-size: small;
+}
+
+blockquote p {
+	line-height: 20pt;
+}
+
+pre {
+	margin: 10px 0 10px 0;
+	padding: 0;
+}
+
+pre code {
+	font-size: 12pt;
+}
