@@ -36,7 +36,7 @@ exports.about = function(req, res) {
 
 exports.post = function(req, res) {
 	var Article = mongoose.model('Article', article.schema);
-	Article.find().limit(5).exec(function(err, articles) {
+	Article.find().limit(5).sort({date: 'desc'}).exec(function(err, articles) {
 		
 		//content_path -> md files
 		var default_path = path.join(__dirname, '../public', 'archives', 'posts');
