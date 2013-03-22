@@ -13,6 +13,7 @@ var rl = readline.createInterface({
 	output: process.stdout
 });
 
+var category = 0;
 var title = '';
 var author = '';
 var file_name = '';
@@ -36,7 +37,7 @@ rl.question('Want to do [post, find, remove] > ', function(answer) {
 
 function FindArticle() {
 	rl.question("Title > ", function(answer) {
-		Article.find({ title : answer }, function(err, docs){
+		Article.find({ title : new RegExp(answer) }, function(err, docs){
 			if(!err) {
 				for(var i in docs) {
 					console.log(docs[i]);
@@ -67,13 +68,16 @@ function RemoveArticle() {
 }
 
 function PostArticle() {
-	rl.question("Title > ", function(answer) {
-		title = answer;
-		rl.question("Author > ", function(answer_) {
-			author = answer_;
-			rl.question("Post File Name > ", function(answer__) {
-				file_name = answer__;
-				InsertArticle();
+	rl.question("Category > ", function(answer) {
+		category = article_model.get_category_id(answer);
+		rl.question("Title > ", function(answer) {
+			title = answer;
+			rl.question("Author > ", function(answer) {
+				author = answer;
+				rl.question("Post File Name > ", function(answer) {
+					file_name = answer;
+					InsertArticle();
+				});
 			});
 		});
 	});
@@ -85,6 +89,7 @@ function InsertArticle() {
 		process.exit(0);
 	}
 	var arti = new Article({
+		'category': category,
 		'title': title,
 		'author': author,
 		'content_path': file_name		

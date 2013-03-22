@@ -23,23 +23,12 @@ marked.setOptions({
   }
 });
 
-exports.index = function(req, res){
-	res.render('index');
-};
-
-exports.about = function(req, res) {
-
-	//content_path -> md files
-	var file_path = path.join(__dirname, '../public', 'archives', 'about', 'about.md');
-	res.render('about', {'second_title': 'About', 'content': marked(fs.readFileSync(file_path, 'utf8'))});
-}
-
-exports.post = function(req, res) {
+function getPosts(category_name, callback) {
 	var Article = mongoose.model('Article', article.schema);
-	Article.find().limit(5).sort({date: 'desc'}).exec(function(err, articles) {
+	Article.find({ category: article.get_category_id(category_name) }).limit(5).sort({date: 'desc'}).exec(function(err, articles) {
 		
 		//content_path -> md files
-		var default_path = path.join(__dirname, '../public', 'archives', 'posts');
+		var default_path = path.join(__dirname, '../public', 'archives', category_name);
 		
 		for(var i in articles) {
 			if(articles[i].content_path != null) {
@@ -52,12 +41,38 @@ exports.post = function(req, res) {
 				}
 			}
 		}
-		
+		console.log(articles);
+		callback(articles);
+	});
+}
+
+exports.index = function(req, res){
+	res.render('index');
+};
+
+exports.about = function(req, res) {
+
+	//content_path -> md files
+	var file_path = path.join(__dirname, '../public', 'archives', 'about', 'about.md');
+	res.render('about', {'second_title': 'About', 'content': marked(fs.readFileSync(file_path, 'utf8'))});
+}
+
+exports.post = function(req, res) {
+	getPosts('post', function(articles) {
 		res.render('post', {
 			'second_title': 'Post',
 			'articles': articles
 		});
-	});	
+	});
+}
+
+exports.snippet = function(req, res) {
+	getPosts('snippet', function(articles) {
+		res.render('post', {
+			'second_title': 'Snippet',
+			'articles': articles
+		});
+	});
 }
 
 exports.md = function(req, res) {

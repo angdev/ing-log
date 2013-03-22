@@ -116,8 +116,8 @@ hr {
 
 .post-box {
 	padding: 10px 0 0 10px;
-	margin: 10px 0 10px 0;	
-	border-left: 3px solid #dddddd;	
+	margin: 30px 0 10px 0;	
+	border-left: 3px solid #dddddd;
 }
 
 .post-title {
@@ -130,7 +130,7 @@ hr {
 
 .post-content {
 	margin: 15px 0 0 10px;
-	padding: 10px 0 10px 0;
+	padding: 20px 0 10px 0;
 }
 
 .post-content h1 {
@@ -143,6 +143,22 @@ hr {
 
 .post-content h3 {
 	font-size: 10pt;
+}
+
+.post-content p {
+	line-height: 1.7em;
+}
+
+.post-content blockquote {
+	margin-bottom: 10px;
+}
+
+.post-content ol {
+	margin-left: 20px;
+}
+
+.post-content ol li {
+	margin: 5px 0 5px 0;
 }
 
 .post-date {

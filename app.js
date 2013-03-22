@@ -47,6 +47,7 @@ app.configure('development', function(){
 app.get('/', routes.index);
 app.get('/about', routes.about);
 app.get('/post', routes.post);
+app.get('/snippet', routes.snippet);
 app.get('/project', routes.project);
 app.get('/md/:file', routes.md);
 

@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
 var article_schema = mongoose.Schema({
+	category: Number,
 	title: String,
 	author: String,
 	content_path: String,
@@ -15,3 +16,13 @@ var article_schema = mongoose.Schema({
 });
 
 exports.schema = article_schema;
+exports.get_category_id = function category(name) {
+	name = name.toLowerCase();
+	switch(name) {
+		case 'post': return 0; break;
+		case 'snippet': return 1; break;
+		default:
+			process.exit(0);
+			break;
+	}
+}
