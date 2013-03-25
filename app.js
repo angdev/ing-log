@@ -49,6 +49,7 @@ app.get('/about', routes.about);
 app.get('/post', routes.post);
 app.get('/snippet', routes.snippet);
 app.get('/project', routes.project);
+app.get('/slide', routes.slide);
 app.get('/md/:file', routes.md);
 
 app.get('/test', test.test);

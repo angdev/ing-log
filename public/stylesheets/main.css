@@ -171,3 +171,7 @@ hr {
 	font-size: small;
 	right: 5px;
 }
+
+.slide-container {
+	margin: 15px;
+}

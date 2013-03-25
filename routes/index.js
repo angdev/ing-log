@@ -19,7 +19,7 @@ marked.setOptions({
   smartLists: true,
   langPrefix: 'language-',
   highlight: function(code, lang) {
-  	return highlight(code);
+  	return highlight(lang, code);
   }
 });
 
@@ -34,7 +34,8 @@ function getPosts(category_name, callback) {
 			if(articles[i].content_path != null) {
 				var file_path = path.join(default_path, articles[i].content_path);
 				try {
-					articles[i].content = marked(fs.readFileSync(file_path, 'utf8'));
+					var file_content = fs.readFileSync(file_path, 'utf8');
+					articles[i].content = marked(file_content);
 				} catch(e) {
 					console.log(e);
 					articles[i].content = "Archive cannot be found."
@@ -72,6 +73,12 @@ exports.snippet = function(req, res) {
 			'second_title': 'Snippet',
 			'articles': articles
 		});
+	});
+}
+
+exports.slide = function(req, res) {
+	res.render('slide', {
+		'second_title': 'Presentation',
 	});
 }
 

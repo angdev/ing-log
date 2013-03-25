@@ -30,12 +30,13 @@
 		</div>
 		
 		 <div class="page-sidebar bg-color-white">
-			 <ul class="bg-color-white">
+		 	<ul class="bg-color-white">
 			 	<% active = {}; if(typeof(second_title) !== 'undefined') active[second_title] = 'nav_active'; %>
 	            <li class="<%=active['About']%>"><%-: 'about' | link_to: 'About' %></li>
 	            <li class="<%=active['Post']%>"><%-: 'post' | link_to: 'Post' %></li>
 	            <li class="<%=active['Snippet']%>"><%-: 'snippet' | link_to: 'Snippet' %></li>
 	            <li class="<%=active['Project']%>"><%-: 'project' | link_to: 'Project' %></li>
+	            <% if(false) { %><li class="<%=active['Presentation']%>"><%-: 'slide' | link_to: 'Presentation' %></li><% } %>
 	        </ul>
 		 </div>
 		
