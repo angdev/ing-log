@@ -6,6 +6,20 @@
 	<%-: '/stylesheets/modern.css' | css %>
 	<%-: '/stylesheets/main.css' | css %>
 	<%-: '/stylesheets/highlight.css' | css %>
+	<meta property="og:url" content="http://blog.fegs.kr" /> 
+	<meta property="og:title" content="ing-log" /> 
+	<meta property="og:description" content="잉여로운 블로그" />
+	<meta property="og:image" url="" />
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	
+	  ga('create', 'UA-39563978-1', 'fegs.kr');
+	  ga('send', 'pageview');
+  	</script>
 </head>
 <body>
 	<div class="page with-sidebar">
@@ -24,7 +38,8 @@
 					<%-: 'http://facebook.com/vang0123v' | link_to: '<i class="icon-facebook"></i>' %>
 					<%-: 'http://twitter.com/ang0123dev' | link_to: '<i class="icon-twitter"></i>' %>
 					<%-: 'http://github.com/FeGs' | link_to: '<i class="icon-github-2"></i>' %>
-					<%-: 'http://bitbucket.com/FeGs' | link_to: 'Bitbucket' %>
+					<%-: 'http://bitbucket.org/FeGs' | link_to: 'Bitbucket' %>
+					<%-: 'http://oldlog.fegs.kr' | link_to: 'OldLog' %>
 				</div>
 			</div>
 		</div>
@@ -34,7 +49,7 @@
 			 	<% active = {}; if(typeof(second_title) !== 'undefined') active[second_title] = 'nav_active'; %>
 	            <li class="<%=active['About']%>"><%-: 'about' | link_to: 'About' %></li>
 	            <li class="<%=active['Post']%>"><%-: 'post' | link_to: 'Post' %></li>
-	            <li class="<%=active['Snippet']%>"><%-: 'snippet' | link_to: 'Snippet' %></li>
+	            <li class="<%=active['Snippet/Etc']%>"><%-: 'snippet' | link_to: 'Snippet/Etc' %></li>
 	            <li class="<%=active['Project']%>"><%-: 'project' | link_to: 'Project' %></li>
 	            <% if(false) { %><li class="<%=active['Presentation']%>"><%-: 'slide' | link_to: 'Presentation' %></li><% } %>
 	        </ul>

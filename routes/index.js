@@ -70,7 +70,7 @@ exports.post = function(req, res) {
 exports.snippet = function(req, res) {
 	getPosts('snippet', function(articles) {
 		res.render('post', {
-			'second_title': 'Snippet',
+			'second_title': 'Snippet/Etc',
 			'articles': articles
 		});
 	});
