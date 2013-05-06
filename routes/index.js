@@ -33,7 +33,7 @@ function getPosts(category_name, callback) {
 		for(var i in articles) {
 			if(articles[i].content_path != null) {
 				var file_path = path.join(default_path, articles[i].content_path, 'index.md');
-        var archive_path = 'public/archives/' + articles[i].content_path;
+        var archive_path = 'archives/' + category_name + '/' + articles[i].content_path;
 				try {
 					var file_content = fs.readFileSync(file_path, 'utf8');
           console.log(archive_path);
