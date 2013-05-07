@@ -24,7 +24,7 @@ require('express-helpers')(app);
 
 app.configure(function(){
   app.engine('ejs', ejs_locals);
-  app.set('port', process.env.PORT || 3000);
+  app.set('port', process.env.PORT || 3001);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'ejs');
   //app.use(express.favicon());
@@ -47,6 +47,8 @@ app.configure('development', function(){
 app.get('/', routes.index);
 app.get('/about', routes.about);
 app.get('/post', routes.post);
+app.get('/article', routes.article);
+app.get('/article/:title', routes.article);
 app.get('/snippet', routes.snippet);
 app.get('/project', routes.project);
 app.get('/slide', routes.slide);

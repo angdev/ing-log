@@ -1,11 +1,15 @@
 <% layout('layout') -%>
 <div class="post-container">
+  <% if(articles.length == 0) { %>
+    그런 문서는 없어요 :(
+  <% } else { %>
 	<% for(var i=0; i<articles.length; i++) { %>
 		<div class="post-box">
-      <div class="post-title"><%-: '/article/' + articles[i].title | link_to: articles[i].title  %></div>
+		<div class="post-title"><%= articles[i].title %></div>
 		<div class="post-date"><span><%= articles[i].date %></span></div>
 		<!--<div class="post-author"><%= articles[i].author %></div>-->
 		<div class="post-content"><%- articles[i].content %></div>
 		</div>
-	<% } %>
+  <%  } 
+    } %>
 </div>

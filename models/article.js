@@ -26,3 +26,11 @@ exports.get_category_id = function category(name) {
 			break;
 	}
 }
+exports.get_category_name = function(id) {
+  switch(id) {
+  case 0:
+    return 'Post';
+  case 1:
+    return 'Snippet/Etc';
+  }
+}
